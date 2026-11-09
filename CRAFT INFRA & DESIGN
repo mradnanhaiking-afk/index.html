@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#11110f">
+<title>Craft Infra & Design | Er Saif Ali</title>
+
+<meta name="description" content="Craft Infra & Design creates exceptional spaces through modern construction, architecture, interior design and innovative craftsmanship.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#11110f;
+  --panel:#1b1a17;
+  --gold:#c9a66b;
+  --light:#f5f0e7;
+  --muted:#aaa69e;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body {
+  background:var(--bg);
+  color:var(--light);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+}
+
+a {text-decoration:none;color:inherit;}
+img {max-width:100%;display:block;}
+
+.container {
+  width:min(1160px,90%);
+  margin:auto;
+}
+
+.gold {color:var(--gold);}
+
+.section {
+  padding:100px 0;
+}
+
+.section-label {
+  color:var(--gold);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:16px;
+}
+
+.section-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(38px,6vw,65px);
+  line-height:1.05;
+  margin-bottom:22px;
+}
+
+.section-description {
+  color:var(--muted);
+  line-height:1.9;
+  max-width:650px;
+  font-size:15px;
+}
+
+/* NAVIGATION */
+
+header {
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(17,17,15,.86);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(201,166,107,.15);
+}
+
+nav {
+  min-height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:25px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.logo span {color:var(--gold);}
+
+.nav-links {
+  display:flex;
+  gap:28px;
+  align-items:center;
+}
+
+.nav-links a {
+  font-size:12px;
+  color:#ddd6ca;
+  transition:.3s;
+}
+
+.nav-links a:hover {color:var(--gold);}
+
+.nav-button,.button {
+  display:inline-block;
+  background:var(--gold);
+  color:#171510;
+  padding:14px 23px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1px;
+  transition:.3s;
+}
+
+.button:hover,.nav-button:hover {
+  background:var(--light);
+  transform:translateY(-3px);
+}
+
+/* HERO */
+
+.hero {
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:
+  linear-gradient(90deg,rgba(10,10,9,.94),rgba(10,10,9,.55),rgba(10,10,9,.5)),
+  linear-gradient(0deg,var(--bg),transparent 40%),
+  url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=90') center/cover;
+}
+
+.hero::before {
+  content:"CRAFT";
+  position:absolute;
+  top:17%;
+  left:2%;
+  font-size:clamp(85px,19vw,260px);
+  font-weight:800;
+  letter-spacing:-12px;
+  color:rgba(255,255,255,.045);
+  white-space:nowrap;
+}
+
+.hero-content {
+  position:relative;
+  z-index:2;
+  padding-top:95px;
+  max-width:750px;
+}
+
+.hero-tag {
+  color:var(--gold);
+  letter-spacing:5px;
+  font-size:12px;
+  margin-bottom:25px;
+}
+
+.hero h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(65px,10vw,125px);
+  line-height:.87;
+  margin-bottom:25px;
+}
+
+.hero h1 span {
+  color:var(--gold);
+  display:block;
+}
+
+.hero p {
+  color:#ded8ce;
+  max-width:510px;
+  font-size:15px;
+  line-height:1.9;
+  margin-bottom:32px;
+}
+
+.hero-bottom {
+  position:absolute;
+  bottom:35px;
+  right:5%;
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:3px;
+}
+
+/* ABOUT */
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:65px;
+  align-items:center;
+}
+
+.about-image {
+  position:relative;
+}
+
+.about-image img {
+  width:100%;
+  height:530px;
+  object-fit:cover;
+  filter:brightness(.85);
+}
+
+.about-image::after {
+  content:"";
+  position:absolute;
+  inset:15px -15px -15px 15px;
+  border:1px solid var(--gold);
+  z-index:-1;
+}
+
+.about-content p {
+  color:var(--muted);
+  font-size:14px;
+  line-height:2;
+  margin-bottom:17px;
+}
+
+.signature {
+  margin-top:25px;
+  border-left:2px solid var(--gold);
+  padding-left:17px;
+}
+
+.signature strong {
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;
+  color:var(--gold);
+}
+
+/* EXPERTISE */
+
+.expertise {
+  background:#191815;
+}
+
+.cards {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:48px;
+}
+
+.card {
+  background:#22211d;
+  border:1px solid rgba(201,166,107,.14);
+  overflow:hidden;
+  transition:.4s;
+}
+
+.card:hover {
+  transform:translateY(-8px);
+  border-color:var(--gold);
+}
+
+.card img {
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  transition:.5s;
+}
+
+.card:hover img {transform:scale(1.04);}
+
+.card-content {padding:25px;}
+
+.card-content h3 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:27px;
+  margin-bottom:12px;
+}
+
+.card-content p {
+  font-size:13px;
+  line-height:1.8;
+  color:var(--muted);
+}
+
+/* SERVICES */
+
+.services-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:0 40px;
+  margin-top:35px;
+}
+
+.service {
+  padding:27px 0;
+  border-bottom:1px solid rgba(255,255,255,.13);
+  display:flex;
+  gap:20px;
+}
+
+.service-number {
+  color:var(--gold);
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;
+}
+
+.service h3 {
+  font-size:16px;
+  margin-bottom:9px;
+}
+
+.service p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+}
+
+/* PROJECTS */
+
+.projects {
+  background:#191815;
+}
+
+.project-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+  margin-top:45px;
+}
+
+.project {
+  position:relative;
+  overflow:hidden;
+  height:340px;
+  background:#222;
+}
+
+.project img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.5s;
+}
+
+.project:hover img {transform:scale(1.07);}
+
+.project-caption {
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding:50px 25px 25px;
+  background:linear-gradient(transparent,rgba(0,0,0,.9));
+}
+
+.project-caption h3 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:29px;
+}
+
+.project-caption p {
+  color:var(--gold);
+  font-size:11px;
+  margin-top:6px;
+  letter-spacing:2px;
+}
+
+/* WHY US */
+
+.why-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:35px;
+  margin-top:45px;
+}
+
+.why-item {
+  border-top:1px solid var(--gold);
+  padding-top:23px;
+}
+
+.why-item h3 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:27px;
+  margin-bottom:12px;
+}
+
+.why-item p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+}
+
+/* CTA */
+
+.cta {
+  text-align:center;
+  padding:90px 20px;
+  background:
+  linear-gradient(rgba(12,12,10,.84),rgba(12,12,10,.91)),
+  url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=85') center/cover;
+}
+
+.cta h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(40px,7vw,75px);
+  margin-bottom:20px;
+}
+
+.cta p {
+  color:#ccc4b7;
+  max-width:600px;
+  margin:0 auto 30px;
+  line-height:1.9;
+}
+
+/* CONTACT */
+
+.contact-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  margin-top:40px;
+}
+
+.contact-info p {
+  color:var(--muted);
+  margin-bottom:22px;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.contact-box {
+  padding:20px 0;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.contact-box small {
+  color:var(--gold);
+  letter-spacing:2px;
+  font-size:10px;
+}
+
+.contact-box p {
+  margin:8px 0 0;
+  color:var(--light);
+  word-break:break-word;
+}
+
+.contact-box a:hover {color:var(--gold);}
+
+.contact-photo {
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  filter:brightness(.8);
+}
+
+/* FOOTER */
+
+footer {
+  padding:35px 0;
+  background:#090908;
+  text-align:center;
+  color:#8e897e;
+  font-size:12px;
+  line-height:2;
+}
+
+footer strong {color:var(--gold);}
+
+/* MOBILE */
+
+@media(max-width:800px) {
+  .nav-links {display:none;}
+  .about-grid,.contact-grid {grid-template-columns:1fr;gap:40px;}
+  .cards {grid-template-columns:repeat(2,1fr);}
+  .why-grid {grid-template-columns:1fr;}
+}
+
+@media(max-width:550px) {
+  .section {padding:75px 0;}
+  .cards,.project-grid,.services-grid {grid-template-columns:1fr;}
+  .hero {min-height:90vh;}
+  .hero::before {letter-spacing:-5px;top:23%;}
+  .hero h1 {font-size:70px;}
+  .about-image img {height:380px;}
+  .card img {height:220px;}
+  .project {height:280px;}
+  .nav-button {padding:11px 14px;font-size:10px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="container">
+    <a href="#home" class="logo">CRAFT <span>INFRA</span></a>
+
+    <div class="nav-links">
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#expertise">EXPERTISE</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+
+    <a href="#contact" class="nav-button">LET'S TALK</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-tag">ARCHITECTURE • CONSTRUCTION • DESIGN</div>
+
+      <h1>
+        CRAFT
+        <span>INFRA</span>
+        DESIGN
+      </h1>
+
+      <p>
+        Turning visions into reality through exceptional
+        construction, innovative architecture and timeless design.
+        We create spaces built to inspire.
+      </p>
+
+      <a href="#projects" class="button">EXPLORE OUR WORK →</a>
+    </div>
+  </div>
+
+  <div class="hero-bottom">BUILDING THE FUTURE WITH EXCELLENCE</div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+  <div class="container about-grid">
+
+    <div class="about-image">
+      <!-- Replace with Er Saif Ali's photo -->
+      <img src="images/saif-ali.png" alt="Er Saif Ali - Craft Infra & Design">
+    </div>
+
+    <div class="about-content">
+      <div class="section-label">ABOUT OUR COMPANY</div>
+
+      <h2 class="section-title">
+        Turning Visions Into <span class="gold">Reality.</span>
+      </h2>
+
+      <p>
+        At Craft Infra & Design, we believe every structure tells
+        a story. We are dedicated to creating exceptional spaces
+        through innovative architectural design, quality
+        construction, and thoughtful craftsmanship.
+      </p>
+
+      <p>
+        From modern residential buildings to elegant interiors
+        and impressive exterior designs, our goal is to transform
+        ideas into beautifully designed, functional, and lasting
+        spaces.
+      </p>
+
+      <p>
+        With a commitment to quality, creativity, precision, and
+        customer satisfaction, we focus on every detail — from
+        the initial concept to the final execution.
+      </p>
+
+      <p>
+        We don't just build structures; we create spaces that
+        inspire, connect, and stand the test of time.
+      </p>
+
+      <div class="signature">
+        <strong>Er Saif Ali</strong>
+        <p>Craft Infra & Design</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+
+<section class="section expertise" id="expertise">
+  <div class="container">
+
+    <div class="section-label">WHAT WE DO</div>
+    <h2 class="section-title">Our <span class="gold">Expertise</span></h2>
+    <p class="section-description">
+      Discover our approach to creating beautiful, functional
+      and future-ready spaces through thoughtful design and
+      professional craftsmanship.
+    </p>
+
+    <div class="cards">
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" alt="Building construction">
+        <div class="card-content">
+          <h3>Building Construction</h3>
+          <p>Thoughtfully planned construction solutions focused on quality, durability, safety and functional spaces.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85" alt="Interior design">
+        <div class="card-content">
+          <h3>Interior Design</h3>
+          <p>Beautiful interiors that combine comfort, elegance and smart space planning for everyday living.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=85" alt="Exterior design">
+        <div class="card-content">
+          <h3>Exterior Design</h3>
+          <p>Distinctive exterior concepts that enhance the character, appearance and visual identity of buildings.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85" alt="Architectural design">
+        <div class="card-content">
+          <h3>Architectural Design</h3>
+          <p>Creative architectural concepts that balance aesthetics, functionality and the needs of each project.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=85" alt="3D visualization">
+        <div class="card-content">
+          <h3>3D Elevation & Visualization</h3>
+          <p>Visual concepts that help clients explore the look and feel of a proposed space before execution.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=900&q=85" alt="Renovation">
+        <div class="card-content">
+          <h3>Renovation & Remodeling</h3>
+          <p>Reimagining existing spaces with thoughtful upgrades, improved functionality and fresh design ideas.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-label">OUR SERVICES</div>
+    <h2 class="section-title">Designed With Purpose.<br><span class="gold">Built With Care.</span></h2>
+
+    <div class="services-grid">
+
+      <div class="service">
+        <div class="service-number">01</div>
+        <div>
+          <h3>Residential Construction</h3>
+          <p>Modern homes designed around comfort, functionality and lasting value.</p>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service-number">02</div>
+        <div>
+          <h3>Commercial Construction</h3>
+          <p>Functional commercial spaces with thoughtful planning and design.</p>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service-number">03</div>
+        <div>
+          <h3>Interior & Space Planning</h3>
+          <p>Creative interior concepts that make every space more useful and inviting.</p>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service-number">04</div>
+        <div>
+          <h3>Elevation & Facade Design</h3>
+          <p>Distinctive building facades with modern architectural character.</p>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service-number">05</div>
+        <div>
+          <h3>Renovation & Remodeling</h3>
+          <p>Fresh design solutions to improve and transform existing properties.</p>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service-number">06</div>
+        <div>
+          <h3>Project Planning</h3>
+          <p>Organized project concepts and planning focused on practical execution.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+
+<section class="section projects" id="projects">
+  <div class="container">
+
+    <div class="section-label">OUR PORTFOLIO</div>
+    <h2 class="section-title">Spaces That <span class="gold">Inspire.</span></h2>
+    <p class="section-description">
+      A visual collection of architectural ideas, construction
+      concepts and design inspiration.
+    </p>
+
+    <div class="project-grid">
+
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85" alt="Modern residence">
+        <div class="project-caption">
+          <h3>Modern Residence</h3>
+          <p>RESIDENTIAL ARCHITECTURE</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85" alt="Luxury interior">
+        <div class="project-caption">
+          <h3>Luxury Interiors</h3>
+          <p>INTERIOR DESIGN</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=85" alt="Contemporary facade">
+        <div class="project-caption">
+          <h3>Contemporary Facade</h3>
+          <p>EXTERIOR DESIGN</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85" alt="Architectural concept">
+        <div class="project-caption">
+          <h3>Architectural Concepts</h3>
+          <p>DESIGN & VISUALIZATION</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+
+<section class="section">
+  <div class="container">
+
+    <div class="section-label">WHY CHOOSE US</div>
+    <h2 class="section-title">Our Values. <span class="gold">Our Promise.</span></h2>
+
+    <div class="why-grid">
+
+      <div class="why-item">
+        <h3>Quality First</h3>
+        <p>We value attention to detail, thoughtful material choices and quality at every stage of a project.</p>
+      </div>
+
+      <div class="why-item">
+        <h3>Creative Thinking</h3>
+        <p>We approach every design with fresh ideas and solutions shaped around the client's vision.</p>
+      </div>
+
+      <div class="why-item">
+        <h3>Client Focus</h3>
+        <p>We believe in clear communication, understanding requirements and building lasting relationships.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+  <div class="section-label">LET'S CREATE SOMETHING GREAT</div>
+  <h2>Your Vision. <span class="gold">Our Craft.</span></h2>
+  <p>
+    Have a construction or design project in mind?
+    Let's discuss your ideas and explore how we can bring
+    your vision to life.
+  </p>
+  <a href="#contact" class="button">START A CONVERSATION →</a>
+</section>
+
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+  <div class="container">
+
+    <div class="section-label">GET IN TOUCH</div>
+    <h2 class="section-title">Let's Build Something <span class="gold">Remarkable.</span></h2>
+
+    <div class="contact-grid">
+
+      <div class="contact-info">
+        <p>
+          Every great project starts with a conversation.
+          Contact us to discuss your ideas, requirements
+          and design vision.
+        </p>
+
+        <div class="contact-box">
+          <small>COMPANY</small>
+          <p>Craft Infra & Design</p>
+        </div>
+
+        <div class="contact-box">
+          <small>FOUNDER / CONTACT PERSON</small>
+          <p>Er Saif Ali</p>
+        </div>
+
+        <div class="contact-box">
+          <small>EMAIL ADDRESS</small>
+          <p><a href="mailto:craftinfradesign.rmc@gmail.com">craftinfradesign.rmc@gmail.com</a></p>
+        </div>
+
+        <div class="contact-box">
+          <small>PHONE NUMBER</small>
+          <p><a href="tel:+918521579125">+91 85215 79125</a></p>
+        </div>
+
+        <br>
+        <a class="button" href="https://wa.me/918521579125" target="_blank" rel="noopener">CONTACT ON WHATSAPP →</a>
+      </div>
+
+      <div>
+        <!-- Replace with company / founder photo -->
+        <img class="contact-photo" src="images/saif-ali.png" alt="Er Saif Ali">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <strong>CRAFT INFRA & DESIGN</strong><br>
+    Turning Visions Into Reality.<br>
+    © 2026 Craft Infra & Design. All Rights Reserved.
+  </div>
+</footer>
+
+</body>
+</html>
